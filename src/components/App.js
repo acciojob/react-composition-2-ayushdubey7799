@@ -1,11 +1,20 @@
 
 import React from "react";
+import {useState} from "react";
 import './../styles/App.css';
 
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
+
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      <button onClick={showModal ? "" : () => setShowModal(true)}>Show Modal</button>
+      {showModal && 
+      <div className="model-overlay">
+        <button className="model-close" onClick={() => setShowModal(false)}>Close</button>
+        <p>This is the content of the modal</p>
+      </div>}
     </div>
   )
 }
